@@ -20,9 +20,8 @@ def cron_job(event):
     deta = Deta(config.deta_project_key)
     base = deta.Base("rss2apprise")
     r = requests.get(config.rss_url)
-    old_hash = base.get("hash")
+    old_hash = base.get("hash")["value"]
     hash_feed = hashlib.sha512(str(r.text).encode("utf-8")).hexdigest()
-    print(old_hash, hash_feed)
     if old_hash != hash_feed:
         base.put(hash_feed, "hash")
         d = feedparser.parse(r.text)
