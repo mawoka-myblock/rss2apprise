@@ -1,0 +1,19 @@
+{
+    "name": "Rss2Apprise",
+    "description": "Monitor an Rss-Feed and send a notification via Apprise",
+    "runtime": "python3.9",
+    "env": [
+        {
+            "key": "RSS_URL",
+            "description": "The url of the Rss-Feed",
+            "value": "https://www.netcup-sonderangebote.de/feed",
+            "required": true
+        },
+      {
+        "key": "APPRISE_URI",
+        "description": "A list of Apprise-URI's seperated by a comma \",\". A list of services can be found here: https://github.com/caronc/apprise",
+        "value": "",
+        "required": true
+      }
+    ]
+}
