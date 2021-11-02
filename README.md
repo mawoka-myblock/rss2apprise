@@ -10,4 +10,4 @@ Push the following button:
 
 [![Deploy](https://button.deta.dev/1/svg)](https://go.deta.dev/deploy?repo=https://github.com/mawoka-myblock/rss2apprise)
 
-And add a cron by running `deta cron set "0/30 * * * ? *"`
+... and you are ready 2 go!

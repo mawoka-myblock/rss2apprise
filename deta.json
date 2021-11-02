@@ -15,5 +15,6 @@
         "value": "",
         "required": true
       }
-    ]
+    ],
+  "cron": "60 minutes"
 }
