@@ -21,10 +21,10 @@ def cron_job(event):
     base = deta.Base("rss2apprise")
     r = requests.get(config.rss_url)
     old_hash = base.get("hash")
-    hash_feed = hashlib.sha512(str(r.text).encode("utf-8")).hexdigest()
+    d = feedparser.parse(r.text)
+    hash_feed = hashlib.sha512(str(d.entries[0]).encode("utf-8")).hexdigest()
     if old_hash is None or old_hash["value"] != hash_feed:
         base.put(hash_feed, "hash")
-        d = feedparser.parse(r.text)
         apprise = AppRise.Apprise()
         apprise.add(config.apprise_uris)
         apprise.notify(title=f"New Entry: {d.entries[0].title}", body_format=NotifyFormat.MARKDOWN, body=f"""
@@ -35,7 +35,9 @@ def cron_job(event):
 # Description:
 {markdownify.markdownify(d.entries[0].description)}
                 """)
+        print("NewHash:", hash_feed, "OldHash:", old_hash["value"])
         return "Feed Changed!"
 
     else:
+        print("NewHash:", hash_feed, "OldHash:", old_hash["value"])
         return "Feed didn't change!"
