@@ -10,7 +10,7 @@ feedparser==6.0.8
 idna==3.3
 Markdown==3.3.4
 markdownify==0.9.4
-oauthlib==3.1.1
+oauthlib==3.2.2
 pycparser==2.20
 PyYAML==6.0
 requests==2.26.0
