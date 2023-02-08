@@ -4,7 +4,7 @@ certifi==2021.10.8
 cffi==1.15.0
 charset-normalizer==2.0.7
 click==8.0.3
-cryptography==35.0.0
+cryptography==39.0.1
 deta==1.0.0
 feedparser==6.0.8
 idna==3.3
